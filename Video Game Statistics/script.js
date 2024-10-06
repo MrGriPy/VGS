@@ -65,13 +65,13 @@ const revenueChart = new Chart(revenueCtx, {
                     text: 'Revenus (en milliards de dollars)',
                     color: 'white',
                     font: {
-                        size: 18
+                        size: 16
                     }
                 },
                 ticks: {
                     color: 'white',
                     font: {
-                        size: 18
+                        size: 16
                     }
                 },
                 grid: {
@@ -86,13 +86,13 @@ const revenueChart = new Chart(revenueCtx, {
                     text: 'Années',
                     color: 'white',
                     font: {
-                        size: 18
+                        size: 16
                     }
                 },
                 ticks: {
                     color: 'white',
                     font: {
-                        size: 18
+                        size: 16
                     }
                 },
                 grid: {
@@ -107,7 +107,7 @@ const revenueChart = new Chart(revenueCtx, {
                 labels: {
                     boxWidth: 50, 
                     font: {
-                        size: 18
+                        size: 16
                     },
                     color: 'white'
                 }
@@ -179,13 +179,13 @@ const topLicensesChart = new Chart(document.getElementById('topLicensesChart').g
                     text: 'Revenus (en milliards de dollars)',
                     color: 'white',
                     font: {
-                        size: 18
+                        size: 16
                     }
                 },
                 ticks: {
                     color: 'white',
                     font: {
-                        size: 18
+                        size: 16
                     }
                 },
                 grid: {
@@ -200,13 +200,13 @@ const topLicensesChart = new Chart(document.getElementById('topLicensesChart').g
                     text: 'Licences',
                     color: 'white',
                     font: {
-                        size: 18
+                        size: 16
                     }
                 },
                 ticks: {
                     color: 'white',
                     font: {
-                        size: 18
+                        size: 16
                     }
                 },
                 grid: {
@@ -272,13 +272,13 @@ const playerChart = new Chart(ctx, {
                     text: 'Nombre de joueurs (en milliards)',
                     color: 'white',
                     font: {
-                        size: 18
+                        size: 16
                     }
                 },
                 ticks: {
                     color: 'white',
                     font: {
-                        size: 18
+                        size: 16
                     }
                 },
                 grid: {
@@ -293,13 +293,13 @@ const playerChart = new Chart(ctx, {
                     text: 'Années',
                     color: 'white',
                     font: {
-                        size: 18
+                        size: 16
                     }
                 },
                 ticks: {
                     color: 'white',
                     font: {
-                        size: 18
+                        size: 16
                     }
                 },
                 grid: {
@@ -355,10 +355,16 @@ const averageAgeChart = new Chart(averageAgeCtx, {
                 title: {
                     display: true,
                     text: 'Âge moyen',
-                    color: 'white'
+                    color: 'white',
+                    font: {
+                        size: 16
+                    }
                 },
                 ticks: {
-                    color: 'white'
+                    color: 'white',
+                    font: {
+                        size: 16
+                    }
                 },
                 grid: {
                     drawOnChartArea: true,
@@ -370,10 +376,16 @@ const averageAgeChart = new Chart(averageAgeCtx, {
                 title: {
                     display: true,
                     text: 'Années',
-                    color: 'white'
+                    color: 'white',
+                    font: {
+                        size: 16
+                    }
                 },
                 ticks: {
-                    color: 'white'
+                    color: 'white',
+                    font: {
+                        size: 16
+                    }
                 },
                 grid: {
                     drawOnChartArea: true,
@@ -595,7 +607,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         lineWidth: 1
                     },
                     ticks: {
-                        color: 'rgba(153, 102, 255, 1)'
+                     color: 'white',
+                     font: {
+                        size: 16
+                    }
                     }
                 },
                 y1: {
@@ -630,7 +645,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         lineWidth: 1
                     },
                     ticks: {
-                        color: 'rgba(0, 0, 0, 1)'
+                        color: 'rgba(0, 0, 0, 1)',
+                        font: {
+                            size: 32
+                        }
                     }
                 }
             },
@@ -642,96 +660,159 @@ document.addEventListener('DOMContentLoaded', function() {
                             size: 16
                         }
                     }
-                },
+                }
                 
             }
         }
     });
 });
 
-const canvasContext = document.getElementById('genreEvolutionChart').getContext('2d');
-
-const data = {
-    labels: ['1970', '1980', '1990', '2000', '2010', '2020'],
+// Évolution des Genres de Jeux Vidéo
+const evolutionData = {
+    labels: ['1970s', '1980s', '1990s', '2000s', '2010s'],
     datasets: [
         {
-            label: 'Action',
-            data: [10, 20, 25, 30, 35, 40],
+            label: 'Action ',
+            data: [60, 45, 30, 25, 20],
+            backgroundColor: 'rgba(255, 99, 132, 0.6)',
             borderColor: 'rgba(255, 99, 132, 1)',
-            backgroundColor: 'rgba(255, 99, 132, 0.2)',
-            fill: true,
+            borderWidth: 1
         },
         {
-            label: 'Aventure',
-            data: [5, 10, 15, 20, 25, 30],
+            label: 'Aventure ',
+            data: [15, 10, 10, 10, 15],
+            backgroundColor: 'rgba(54, 162, 235, 0.6)',
             borderColor: 'rgba(54, 162, 235, 1)',
-            backgroundColor: 'rgba(54, 162, 235, 0.2)',
-            fill: true,
+            borderWidth: 1
         },
         {
-            label: 'RPG',
-            data: [0, 5, 10, 15, 25, 30],
+            label: 'RPG ',
+            data: [0, 10, 20, 15, 15],
+            backgroundColor: 'rgba(75, 192, 192, 0.6)',
             borderColor: 'rgba(75, 192, 192, 1)',
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            fill: true,
+            borderWidth: 1
         },
         {
-            label: 'Stratégie',
-            data: [0, 5, 10, 15, 20, 25],
+            label: 'Shooter ',
+            data: [0, 5, 15, 20, 30],
+            backgroundColor: 'rgba(153, 102, 255, 0.6)',
             borderColor: 'rgba(153, 102, 255, 1)',
-            backgroundColor: 'rgba(153, 102, 255, 0.2)',
-            fill: true,
+            borderWidth: 1
         },
         {
-            label: 'Simulation',
-            data: [0, 0, 5, 10, 15, 20],
+            label: 'Simulation ',
+            data: [5, 10, 5, 5, 5],
+            backgroundColor: 'rgba(255, 159, 64, 0.6)',
             borderColor: 'rgba(255, 159, 64, 1)',
-            backgroundColor: 'rgba(255, 159, 64, 0.2)',
-            fill: true,
+            borderWidth: 1
         },
         {
-            label: 'Puzzle',
-            data: [0, 0, 0, 5, 10, 15],
+            label: 'Stratégie ',
+            data: [5, 5, 10, 10, 5],
+            backgroundColor: 'rgba(255, 206, 86, 0.6)',
             borderColor: 'rgba(255, 206, 86, 1)',
-            backgroundColor: 'rgba(255, 206, 86, 0.2)',
-            fill: true,
+            borderWidth: 1
+        },
+        {
+            label: 'Sport ',
+            data: [5, 10, 5, 10, 5],
+            backgroundColor: 'rgba(75, 192, 192, 0.6)',
+            borderColor: 'rgba(75, 192, 192, 1)',
+            borderWidth: 1
+        },
+        {
+            label: 'Puzzle ',
+            data: [5, 10, 5, 5, 10],
+            backgroundColor: 'rgba(54, 162, 235, 0.6)',
+            borderColor: 'rgba(54, 162, 235, 1)',
+            borderWidth: 1
+        },
+        {
+            label: 'MMO ',
+            data: [0, 0, 0, 10, 5],
+            backgroundColor: 'rgba(153, 102, 255, 0.6)',
+            borderColor: 'rgba(153, 102, 255, 1)',
+            borderWidth: 1
+        },
+        {
+            label: 'MOBA ',
+            data: [0, 0, 0, 0, 10],
+            backgroundColor: 'rgba(255, 99, 132, 0.6)',
+            borderColor: 'rgba(255, 99, 132, 1)',
+            borderWidth: 1
         }
     ]
 };
 
-const config = {
-    type: 'line',
-    data: data,
+const chartConfig = {
+    type: 'bar',
+    data: evolutionData,
     options: {
         responsive: true,
-        plugins: {
-            legend: {
-                position: 'top',
-            },
-            tooltip: {
-                mode: 'index',
-                intersect: false,
-            },
-        },
         scales: {
             x: {
+                stacked: true,
                 title: {
                     display: true,
-                    text: 'Années',
+                    text: 'Décennies',
+                    color: 'white',
+                    font: {
+                        size: 16
+                    }
+                },
+                grid: {
+                    drawOnChartArea: true,
+                    color: 'rgba(200, 200, 200, 0.5)',
+                    lineWidth: 1
+                },
+                ticks: {
+                    color: 'white',
+                    font: {
+                        size: 16
+                    }
                 },
             },
             y: {
+                stacked: true,
+                beginAtZero: true,
                 title: {
                     display: true,
-                    text: 'Pourcentage (%)',
+                    text: 'Pourcentage du marché par genre',
+                    color: 'white',
+                    font: {
+                        size: 16
+                    }
                 },
-                beginAtZero: true,
-            },
+                grid: {
+                    drawOnChartArea: true,
+                    color: 'rgba(200, 200, 200, 0.5)',
+                    lineWidth: 1
+                },
+                ticks: {
+                    color: 'white',
+                    font: {
+                        size: 16
+                    }
+                }
+            }
         },
-    },
+        plugins: {
+            legend: {
+                labels: {
+                    color: 'white',
+                    font: {
+                        size: 16
+                    }
+                }
+            }
+            
+        }
+    }
 };
 
-const genreEvolutionChart = new Chart(canvasContext, config);
+const chartCanvas = document.getElementById('genreEvolutionChart').getContext('2d');
+const genreEvolutionChart = new Chart(chartCanvas, chartConfig);
+
 
 //Les jeux vidéos n'ont aucune valeur éducative
 document.addEventListener('DOMContentLoaded', function () {
@@ -748,18 +829,19 @@ document.addEventListener('DOMContentLoaded', function () {
             labels: dataYears,
             datasets: [
                 {
-                    label: 'Revenue (Billion $)',
+                    label: 'Revenue (en Md de dollars $) ',
                     data: revenueData,
                     borderColor: 'rgba(54, 162, 235, 1)',
-                    backgroundColor: 'rgba(54, 162, 235, 0.2)',
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
                     yAxisID: 'yRevenue',
                 },
                 {
-                    label: 'Learners Impacted (Millions)',
+                    label: 'Apprentis impactés (en Millions) ',
                     data: learnersData,
                     borderColor: 'rgba(255, 99, 132, 1)',
-                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.6)',
                     yAxisID: 'yLearners',
+                    color: "white",
                 }
             ]
         },
@@ -769,37 +851,70 @@ document.addEventListener('DOMContentLoaded', function () {
                     type: 'linear',
                     position: 'left',
                     grid: {
-                        color: 'rgba(54, 162, 235, 0.2)',
+                        color: 'rgba(54, 162, 235, 0.6)',
                     },
                     ticks: {
                         color: 'rgba(54, 162, 235, 1)',
+                        font: {
+                            size: 16
+                        }
                     },
                     title: {
                         display: true,
-                        text: 'Revenue (Billion $)',
+                        text: 'Revenue (en Md de $)',
                         color: 'rgba(54, 162, 235, 1)',
+                        font: {
+                            size: 16
+                        }
                     },
                 },
                 yLearners: {
                     type: 'linear',
                     position: 'right',
                     grid: {
-                        color: 'rgba(255, 99, 132, 0.2)',
+                        color: 'rgba(255, 99, 132, 0.6)',
                     },
                     ticks: {
                         color: 'rgba(255, 99, 132, 1)',
+                        font: {
+                            size: 16
+                        }
+                        
                     },
                     title: {
                         display: true,
-                        text: 'Learners Impacted (Millions)',
+                        text: 'Apprentis impactés (en Millions)',
                         color: 'rgba(255, 99, 132, 1)',
+                        font: {
+                            size: 16
+                        }
                     },
                 },
                 x: {
                     grid: {
-                        color: 'rgba(0, 0, 0, 0.1)',
+                        drawOnChartArea: true,
+                        color: 'rgba(200, 200, 200, 0.5)',
+                        lineWidth: 1
                     },
+                    ticks: {
+                        color: 'white',
+                        font: {
+                            size: 16
+                        }
+                        
+                    }
                 }
+            },
+            plugins: {
+                legend: {
+                    labels: {
+                        color: 'white',
+                        font: {
+                            size: 16
+                        }
+                    }
+                }
+                
             }
         }
     });
