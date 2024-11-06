@@ -38,7 +38,7 @@ const revenueChart = new Chart(revenueCtx, {
                 tension: 0.4
             },
             {
-                label: 'Console Portable    ',
+                label: 'Console Portable   ',
                 data: [0, 0, 10, 25, 20, 0],
                 backgroundColor: 'rgba(153, 102, 255, 0.6)',
                 borderColor: 'rgba(153, 102, 255, 1)',
@@ -426,7 +426,7 @@ const ageDistributionChart = new Chart(ageCtx, {
             '35 à 44 ans ', 
             '45 à 54 ans ', 
             '55 à 64 ans ', 
-            '65 ans et plus'
+            '65 ans et plus '
         ],
         datasets: [{
             data: [20, 38, 14, 12, 9, 7],
@@ -568,7 +568,7 @@ document.addEventListener('DOMContentLoaded', function() {
             labels: ['2000', '2007', '2015', '2020', '2023'],
             datasets: [
                 {
-                    label: '% de joueurs se faisant des amis grâce aux jeux ',
+                    label: 'Taux de joueurs se faisant des amis ',
                     data: [50, 55, 60, 70, 74],
                     borderColor: 'rgba(153, 102, 255, 1)',
                     backgroundColor: 'rgba(153, 102, 255, 0.2)',
@@ -577,7 +577,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     yAxisID: 'y'
                 },
                 {
-                    label: 'Joueurs en ligne (millions) ',
+                    label: 'Nombre de joueurs en ligne ',
                     data: [10, 30, 150, 300, 1500],
                     borderColor: 'rgba(75, 192, 192, 1)',
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
@@ -595,7 +595,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     beginAtZero: true,
                     title: {
                         display: true,
-                        text: '% de joueurs se faisant des amis',
+                        text: 'Taux de joueurs se faisant des amis',
                         color: 'rgba(153, 102, 255, 1)',
                         font: {
                             size: 16
@@ -607,10 +607,10 @@ document.addEventListener('DOMContentLoaded', function() {
                         lineWidth: 1
                     },
                     ticks: {
-                     color: 'white',
-                     font: {
-                        size: 16
-                    }
+                        color: 'rgba(153, 102, 255, 1)',
+                        font: {
+                            size: 16
+                        }
                     }
                 },
                 y1: {
@@ -619,7 +619,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     beginAtZero: true,
                     title: {
                         display: true,
-                        text: 'Joueurs en ligne (millions)',
+                        text: 'Nombre de joueurs en ligne (en millions)',
                         color: 'rgba(75, 192, 192, 1)',
                         font: {
                             size: 16
@@ -637,7 +637,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 x: {
                     title: {
                         display: true,
-                        text: 'Année'
+                        text: 'Années',
+                        color: 'white',
+                        font: {
+                            size: 16
+                        }
                     },
                     grid: {
                         drawOnChartArea: true,
@@ -645,9 +649,9 @@ document.addEventListener('DOMContentLoaded', function() {
                         lineWidth: 1
                     },
                     ticks: {
-                        color: 'rgba(0, 0, 0, 1)',
+                        color: 'white',
                         font: {
-                            size: 32
+                            size: 16
                         }
                     }
                 }
@@ -660,90 +664,75 @@ document.addEventListener('DOMContentLoaded', function() {
                             size: 16
                         }
                     }
+                },
+                tooltip: {
+                    callbacks: {
+                        label: function(tooltipItem) {
+                            const datasetLabel = tooltipItem.dataset.label;
+                            const value = tooltipItem.parsed.y;
+
+                            // Affiche le label avec le format approprié
+                            return `${datasetLabel}: ${value}${tooltipItem.dataset.yAxisID === 'y' ? '%' : ' millions'}`;
+                        }
+                    }
                 }
-                
             }
         }
     });
 });
 
+
 // Évolution des Genres de Jeux Vidéo
+var chartCtx = document.getElementById('genreEvolutionChart').getContext('2d');
+
+// Données ajustées pour que chaque décennie totalise 100%
 const evolutionData = {
-    labels: ['1970s', '1980s', '1990s', '2000s', '2010s'],
+    labels: ['1980', '1990', '2000', '2010', '2020'],
     datasets: [
         {
             label: 'Action ',
-            data: [60, 45, 30, 25, 20],
             backgroundColor: 'rgba(255, 99, 132, 0.6)',
-            borderColor: 'rgba(255, 99, 132, 1)',
-            borderWidth: 1
+            data: [20, 25, 30, 35, 25] // Ajusté pour chaque décennie
         },
         {
             label: 'Aventure ',
-            data: [15, 10, 10, 10, 15],
             backgroundColor: 'rgba(54, 162, 235, 0.6)',
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 1
+            data: [10, 7, 8, 10, 15]
         },
         {
             label: 'RPG ',
-            data: [0, 10, 20, 15, 15],
             backgroundColor: 'rgba(75, 192, 192, 0.6)',
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1
+            data: [15, 20, 25, 15, 10]
         },
         {
-            label: 'Shooter ',
-            data: [0, 5, 15, 20, 30],
+            label: 'Shooters ',
             backgroundColor: 'rgba(153, 102, 255, 0.6)',
-            borderColor: 'rgba(153, 102, 255, 1)',
-            borderWidth: 1
+            data: [5, 10, 20, 25, 30]
         },
         {
-            label: 'Simulation ',
-            data: [5, 10, 5, 5, 5],
-            backgroundColor: 'rgba(255, 159, 64, 0.6)',
-            borderColor: 'rgba(255, 159, 64, 1)',
-            borderWidth: 1
+            label: 'Plateforme ',
+            backgroundColor: 'rgba(255, 206, 86, 0.6)',
+            data: [30, 25, 10, 5, 5]
+        },
+        {
+            label: 'Course/Sport ',
+            backgroundColor: 'rgba(75, 192, 192, 0.6)',
+            data: [10, 5, 5, 5, 5]
         },
         {
             label: 'Stratégie ',
-            data: [5, 5, 10, 10, 5],
-            backgroundColor: 'rgba(255, 206, 86, 0.6)',
-            borderColor: 'rgba(255, 206, 86, 1)',
-            borderWidth: 1
+            backgroundColor: 'rgba(255, 159, 64, 0.6)',
+            data: [5, 5, 2, 3, 5]
         },
         {
-            label: 'Sport ',
-            data: [5, 10, 5, 10, 5],
-            backgroundColor: 'rgba(75, 192, 192, 0.6)',
-            borderColor: 'rgba(75, 192, 192, 1)',
-            borderWidth: 1
-        },
-        {
-            label: 'Puzzle ',
-            data: [5, 10, 5, 5, 10],
+            label: 'Simulation ',
             backgroundColor: 'rgba(54, 162, 235, 0.6)',
-            borderColor: 'rgba(54, 162, 235, 1)',
-            borderWidth: 1
-        },
-        {
-            label: 'MMO ',
-            data: [0, 0, 0, 10, 5],
-            backgroundColor: 'rgba(153, 102, 255, 0.6)',
-            borderColor: 'rgba(153, 102, 255, 1)',
-            borderWidth: 1
-        },
-        {
-            label: 'MOBA ',
-            data: [0, 0, 0, 0, 10],
-            backgroundColor: 'rgba(255, 99, 132, 0.6)',
-            borderColor: 'rgba(255, 99, 132, 1)',
-            borderWidth: 1
+            data: [5, 3, 3, 2, 5]
         }
     ]
 };
 
+// Configuration du graphique en barres empilées
 const chartConfig = {
     type: 'bar',
     data: evolutionData,
@@ -792,8 +781,12 @@ const chartConfig = {
                     color: 'white',
                     font: {
                         size: 16
+                    },
+                    callback: function(value) {
+                        return value + '%'; // Ajout d'un symbole de pourcentage
                     }
-                }
+                },
+                max: 100 // Limite à 100%
             }
         },
         plugins: {
@@ -805,14 +798,12 @@ const chartConfig = {
                     }
                 }
             }
-            
         }
     }
 };
 
-const chartCanvas = document.getElementById('genreEvolutionChart').getContext('2d');
-const genreEvolutionChart = new Chart(chartCanvas, chartConfig);
-
+// Création du graphique
+var genreEvolutionChart = new Chart(chartCtx, chartConfig);
 
 //Les jeux vidéos n'ont aucune valeur éducative
 document.addEventListener('DOMContentLoaded', function () {
