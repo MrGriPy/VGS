@@ -3,99 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>L'évolution des clichés autour du Jeu Vidéo</title>
+    <title>VGS - L'évolution des clichés autour du Jeu Vidéo</title>
     <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="img/vgslogo.png">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
         <header>
-            <h1>L'évolution des clichés autour du Jeu Vidéo</h1> <br>
-            <p>Le jeu vidéo est une industrie mondiale, avec 2,8 milliards de joueurs dans le monde. Explorez les données et les tendances qui façonnent le paysage du jeu vidéo.</p>
+            <h1>Video Game Stats</h1> <br>
+            <h2>L'évolution des clichés autour du Jeu Vidéo</h2> <br>
+            <p>Depuis la popularisation du Jeu-Vidéo, beaucoup de clichés ont émergé dans le but de le dénigrer. Nous allons donc reprendre ces clichés pour voir ce qu'il en est réellement aujourd'hui.</p>
         </header>
 
         <section class="game-introduction">
-            <h2>Le Jeu Vidéo, C'est Quoi ?</h2>
+            <h2>Le Jeu Vidéo, c'est quoi ?</h2>
             <p>Le jeu vidéo est bien plus qu'un simple divertissement. C'est une industrie qui génère des revenus de plusieurs milliards de dollars chaque année, avec une diversité de genres et de plateformes. Découvrez les chiffres qui illustrent l'ampleur de cette culture moderne.</p> <br>
             <canvas id="revenueChart" width="400" height="200"></canvas> <br>
             <p>Graphique des revenus du jeu vidéo de 1970 à 2023.</p>
         </section>
 
-        <section class="top-licenses">
-            <h2>Les Jeux Vidéo les plus lucratifs du monde</h2>
-            <canvas id="topLicensesChart" width="400" height="200"></canvas> <br>
-            <p>Ce graphique présente les 10 licences de jeux vidéo les plus lucratives de tous les temps. À noter que Pokémon est l'une des franchises les plus rentables au monde, surpassant même de nombreux géants de l'industrie.</p>
+        <section id="game-container">
+            <h3 id="question">Selon vous, quelle est la franchise la plus lucrative du monde ?</h2>
+            <div id="choices">
+                <button class="choice" data-answer="incorrect">Mario</button>
+                <button class="choice" data-answer="correct">Pokémon</button>
+                <button class="choice" data-answer="incorrect">Minecraft</button>
+                <button class="choice" data-answer="incorrect">Grand Theft Auto</button>
+            </div>
+            <div id="feedback" style="display:none;"></div>
+            <canvas id="licenceGraph" style="display:none;"></canvas>
+            <div id="explanation" style="display:none;">
+                <p>Explications : On ne le réalise pas forcément, mais Pokémon est bien la franchise de jeu la plus lucrative notamment grâce à ses produits dérivés plutôt que la série de jeux. Atteignant plus de 140 milliards de dollars, elle est également la franchise tout type confondu la plus lucrative du monde, devant d'autres figures comme Hello Kitty ou Mickey Mouse. L'écart avec Mario s'explique par le fait que cette franchise ne se rentabilise presque qu'exclusivement par ses jeux, ce qui en fait malgré tout l'une des mascottes les plus populaires du milieu. Minecraft est le jeu le plus vendu de l'histoire (300 millions de copies vendues), mais cela ne suffit tout de même pas à atteindre ce top. Enfin, Grand Theft Auto est une licence qui a principalement brillée grâce au 5ème opus de la série en étant le deuxième jeu le plus vendu de l'histoire (donc derrière Minecraft avec 205 millions de copies vendues). Puisque les autres titres se sont bien moins vendus malgré leurs popularités, la franchise ne figure pas non plus dans ce top.</p>
+            </div>
         </section>
 
         <section class="players-evolution">
             <h2>Évolution du nombre de joueurs de jeux vidéo</h2>
             <canvas id="playerChart" width="400" height="200"></canvas> <br>
-            <p>Ce graphique illustre l'évolution du nombre de joueurs de jeux vidéo au fil des décennies. On peut observer une croissance exponentielle depuis les années 70, avec une augmentation marquée grâce aux avancées technologiques et à l'accessibilité croissante des jeux.</p>
+            <p>Ce graphique illustre l'évolution du nombre de joueurs de jeux vidéo au fil des décennies. On peut observer une croissance exponentielle depuis les années 70. Grâce au développement des ordinateurs et des consoles portables et de salon, leurs avancées technologiques ont permis une accessibilité croissante aux jeux plutôt que les bornes d'arcade.</p>
         </section>
 
         <section class="average-age-players">
-            <h2>Évolution de l'âge moyen des joueurs de jeux vidéo</h2>
+            <h2>"Les jeux vidéo, c'est pour les enfants"</h2>
             <canvas id="averageAgeChart" width="400" height="200"></canvas> <br>
             <p>
-                Ce graphique montre comment l'âge moyen des joueurs a évolué depuis 1999. Contrairement à l'idée reçue que 
-                les jeux vidéo sont principalement pour les enfants, l'âge moyen des joueurs est resté stable dans la tranche 
-                des 30-35 ans au cours des dernières décennies.
+             Ce cliché très populaire que tout joueur a déjà entendu nous permet de remettre en perspective ce qu'il en est réellement. Contrairement à cette idée reçue, le véritable âge moyen des joueurs est resté stable autour des 35 ans au cours des dernières décennies. Cette moyenne varie selon les pays où en France, l'âge moyen est d'environ 39 ans.
             </p>
         </section>
         
         <section class="age-distribution chart">
             <h2>Répartition des joueurs par tranche d'âge</h2>
             <canvas id="ageDistributionChart" style="max-width: 700px; max-height: 400px;"></canvas> <br>
-            <p>Ce graphique montre la répartition des joueurs de jeux vidéo selon leur tranche d'âge, 
-            prouvant que le jeu vidéo s'adresse à un large éventail d'âges, pas seulement aux jeunes.</p>
+            <p>Si la moyenne d'âge ne vous est pas parlant, alors voici un graphique plus détaillé montrant la répartition des joueurs de jeux vidéo selon leur tranche d'âge. Cela démontre que le jeu vidéo s'adresse à un large éventail d'âges, et pas seulement qu'aux enfants.</p>
         </section>
         
         <section class="age-gender-distribution">
-            <h2>Répartition des joueurs par sexe en fonction de l'âge</h2>
+            <h2>"C'est pour les garçons"</h2>
             <canvas id="ageGenderChart" width="400" height="200"></canvas> <br>
             <p>
-                Ce graphique montre la répartition des joueurs de jeux vidéo par tranche d'âge et sexe. On observe une 
-                représentation de plus en plus équilibrée entre les hommes et les femmes, surtout dans les tranches 
-                d'âge les plus jeunes.
+                On a souvent entendu que le jeu vidéo ne s'adressait qu'à un public masculin, au point que cela avait poussé les studios de dévoloppement à la création de jeux "pour filles" jusque dans les années 2010s. Pourtant, on observe par tranche d'âge une parité presque parfaite entre les hommes et les femmes. La moyenne de différence n'est qu'environ de 2 à 3% selon les pays.
             </p>
         </section>
   
         <section class="communities-evolution">
-            <h2>Évolution des communautés de jeux vidéo</h2>
+            <h2>"Les jeux isolent du monde réel"</h2>
             <canvas id="communitiesChart" width="400" height="200"></canvas> <br>
             <p>
-                Ce graphique montre l'augmentation du nombre de joueurs en ligne et l'importance croissante des interactions sociales 
-                dans les jeux vidéo. Les statistiques montrent comment les jeux vidéo ont favorisé les relations et les communautés au fil du temps.
+                Puisque l'on ne sort pas lorsque l'on joue, il n'est pas compliqué de supposer que cela coupe tout lien social. L'augmentation du nombre de joueurs en ligne et l'importance croissante des interactions sociales dans les jeux vidéo n'est cependant pas à négliger. Les statistiques montrent comment les jeux vidéo ont favorisé les relations et les communautés au fil du temps. Bien que celles-ci ne soient faites qu'au travers d'un écran, il ne faut pas oublier qu'il y a bien un être humain dérrière chaque avatar.
             </p>
         </section>
 
         <section class="genre-evolution">
-            <h2>Évolution des genres de jeux vidéo</h2>
+            <h2>"Il faut tout le temps tuer dans les jeux"</h2>
             <canvas id="genreEvolutionChart" width="800" height="400"></canvas> <br>
+            <p>Bien que les jeux de tir ou ("Shooters" en anglais) soient devenus popularisés au fil du temps, il existe toujours différents genres de jeux aux gameplay variés qui n'ont rien à voir avec le fait de tuer.</p>
         </section>
  
         <section class="education-revenue-evolution">
-            <h2>Evolution of Educational Video Games Revenues and Learners Impacted</h2>
+            <h2>"Les jeux rendent violent/bête"</h2>
+            <p>Ayant été très alimenté par les médias peu savants sur le sujet-là à l'époque, il s'agit sans doute du cliché le plus connu de tous, et également celui qui a banalisé le plus de mépris possible. Une bonne fois pour toute : Non, le jeu vidéo ni violent, ni bête. Les rares exemples trouvables ne sont que des cas isolés avec des problèmes psychologiques qui sont la véritable cause de leurs problèmes. Le jeu vidéo peut provoquer des émotions et des sentiments tels que de la joie, de l'apaisement, de la tristesse, tout comme de la colère et de la frustration. Mais il faut savoir différencier ces réactions à chaud et les vrais comportements. Utilisé à bon escient, il peut même s'avérer bénéfique.</p> <br>
             <canvas id="educationGamesChart" width="400" height="200"></canvas> <br>
+            <p>Comme nous pouvons le voir sur ce graphique, le jeu vidéo peut avoir un impact éducatif avec des revenus et un nombre d'apprenants de plus en plus croissant.</p>
         </section>
    
         <section class="conclusion">
             <h2>Conclusion</h2>
-            <p>Les jeux vidéo sont une forme d'art moderne et une source de divertissement et d'apprentissage. Ils ont un impact positif sur la société, et il est temps de dépasser les stéréotypes dépassés qui les entourent.</p>
+            <p>Les jeux vidéo sont une forme d'art moderne et une source de divertissement et d'apprentissage. Ils ont un impact positif sur la société. Bien sûr, le jeu vidéo n'est pas non plus bon en trop grande consommation. Mais cela est aussi vrai avec n'importe quel produit ou n'importe quelle pratique. Alors, il est enfin temps de dépasser les stéréotypes dépassés qui les entourent.</p>
         </section>
 
         <section id="mentions-legales">
-            <h2>Mentions Légales</h2>
-            <p>Les informations présentées sur ce site ont été collectées à partir de diverses sources, que vous pouvez consulter ci-dessous :</p>
-            <ul>
-                <li><a href="https://www.statista.com">Statista - Données sur l'industrie du jeu vidéo</a></li>
-                <li><a href="https://www.ign.com">IGN - Informations sur les jeux vidéo</a></li>
+            <h2>Mentions Légales</h2>   
+                    <h3>Editeur de la publication :</h3>
+                    <p>Université Gustave Eiffel, Établissement public national à caractère scientifique culturel et professionnel enregistré dont le SIRET est 130 026 123 00013</p>
+       
+                    <h3>Numéro de téléphone :</h3>
+                    <p>01 60 95 75 00</p>
+
+                    <h3>Rédacteur de la publication :</h3>
+                    <p>Thomas Vidal</p>
+       
+                    <h3>Hébergeur :</h3>
+                    <p><a href="https://github.com/ ">GitHub</a> - Domicilié PRIUS BERNHARDPLEIN 200 PAYS BAS PAYS-BAS.</p>
+
+                    <h3>Politique de confidentialité :</h3>
+                    <p>Données à caractère personnel : Comme indiquée sur <a href="https://docs.github.com/fr/site-policy/privacy-policies">cette page</a>, l'hébergeur GitHub peut collecter des informations personnelles relatives aux visiteurs de ce site web, incluant un enregistrement des adresses IP, en vue de se conformer à ses obligations légales et de maintenir la sécurité et l'intégrité de son service d'hébergement Github Pages.</p>
+
+                    <h3>Recherche INPI :</h3>
+                    <p>Après une recherche d'antériorité sur l'INPI, le nom de la marque "Video Game Stats" n'a pas été déposé.</p>
+       
+                    <h3>Utilisation de l'IA :</h3>
+                    <p>L'assistance de l'intelligence artificielle d'<a href="https://chat.openai.com/">OpenAI</a> a été utilisée afin de contribuer au développement de ce site.</p></li>
+            <ul> 
+                <li><a href="https://fr.statista.com/">Statista - Données sur l'industrie du jeu vidéo</a></li>
+                <li><a href="https://fr.ign.com/">IGN - Informations sur les jeux vidéo</a></li>
                 <li><a href="https://www.polygon.com">Polygon - Actualités et tendances</a></li>
                 <li><a href="https://www.gamedeveloper.com">gamedeveloper - Articles et analyses sur le développement</a></li>
                 <li><a href="https://www.gamesindustry.biz">GamesIndustry.biz - Rapports et études de marché</a></li>
                 <li><a href="https://x.com">Twitter / X - Analyses journalistiques des bilans financiers</a></li>
             </ul>
-            <p>Ces sources ont été consultées pour garantir l'exactitude et la pertinence des données présentées.</p>
         </section>
         
     </div>
