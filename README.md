@@ -1,2 +1,2 @@
 # VGS
-Video Game Statistics
+Video Game Stats
