@@ -124,53 +124,99 @@ const revenueChart = new Chart(revenueCtx, {
 });
 
 //Top 10 des licences de Jeu Vidéo les plus lucratives
-const topLicensesData = {
-    labels: [
-        'Pokémon (1996)', 
-        'Mario (1983)', 
-        'Call of Duty (2003)', 
-        'Wii (2006)', 
-        'Pac-Man (1980)', 
-        'Space Invaders (1978)', 
-        'Dungeon Fighter Online (2005)', 
-        'Street Fighter (1987)', 
-        'Final Fantasy (1987)', 
-        'Warcraft (1994)'
-    ],
-    datasets: [{
-        data: [90, 30.2, 17, 14.8, 14.1, 13.9, 11.8, 11.3, 10.6, 10.6],
-        backgroundColor: [
-            'rgba(255, 99, 132, 0.6)',
-            'rgba(54, 162, 235, 0.6)',
-            'rgba(255, 206, 86, 0.6)',
-            'rgba(75, 192, 192, 0.6)',
-            'rgba(153, 102, 255, 0.6)',
-            'rgba(255, 159, 64, 0.6)',
-            'rgba(255, 99, 132, 0.6)',
-            'rgba(54, 162, 235, 0.6)',
-            'rgba(255, 206, 86, 0.6)',
-            'rgba(75, 192, 192, 0.6)'
-        ],
-        borderColor: [
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)',
-            'rgba(153, 102, 255, 1)',
-            'rgba(255, 159, 64, 1)',
-            'rgba(255, 99, 132, 1)',
-            'rgba(54, 162, 235, 1)',
-            'rgba(255, 206, 86, 1)',
-            'rgba(75, 192, 192, 1)'
-        ],
-        borderWidth: 1
-    }]
-};
+const choices = document.querySelectorAll('.choice');
+const feedback = document.getElementById('feedback');
+const graphCanvas = document.getElementById('licenceGraph');
+const explanation = document.getElementById('explanation');
+const question = document.getElementById('question');
 
-const topLicensesChart = new Chart(document.getElementById('topLicensesChart').getContext('2d'), {
-    type: 'bar',
-    data: topLicensesData,
-    options: {
+choices.forEach(choice => {
+    choice.addEventListener('click', function () {
+        // Si la réponse a déjà été donnée, on ne fait rien
+        if (this.classList.contains('disabled') || this.classList.contains('pressed')) {
+            return;
+        }
+
+        const answer = this.getAttribute('data-answer');
+
+        // Désactivation des choix après une réponse
+        choices.forEach(c => {
+            c.classList.add('disabled');  // Désactivation de tous les autres boutons
+        });
+
+        // Ajout de la classe 'pressed' au bouton choisi
+        this.classList.add('pressed');
+
+        if (answer === 'correct') {
+            question.style.color = 'lightgreen';
+            explanation.style.display = 'block';
+            graphCanvas.style.display = 'block';
+            question.textContent = 'Bonne réponse !';
+            generateLicenceChart();
+        } else {
+            question.style.color = 'red';
+            explanation.style.display = 'block';
+            graphCanvas.style.display = 'block';
+            question.textContent = 'Mauvaise réponse !';
+            generateLicenceChart();
+        }
+
+        // Ajouter la classe 'show' pour lancer l'animation
+        feedback.classList.add('show');
+        explanation.classList.add('show');
+        graphCanvas.classList.add('show');
+    });
+});
+
+function generateLicenceChart() {
+    const ctx = graphCanvas.getContext('2d');
+
+    // Données mises à jour
+    const topLicensesData = {
+        labels: [
+            'Pokémon (1996)', 
+            'Mario (1983)', 
+            'Call of Duty (2003)', 
+            'Wii (2006)', 
+            'Pac-Man (1980)', 
+            'Space Invaders (1978)', 
+            'Dungeon Fighter Online (2005)', 
+            'Street Fighter (1987)', 
+            'Final Fantasy (1987)', 
+            'Warcraft (1994)'
+        ],
+        datasets: [{
+            data: [147, 30.2, 17, 14.8, 14.1, 13.9, 11.8, 11.3, 10.6, 10.6],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(75, 192, 192, 0.6)',
+                'rgba(153, 102, 255, 0.6)',
+                'rgba(255, 159, 64, 0.6)',
+                'rgba(255, 99, 132, 0.6)',
+                'rgba(54, 162, 235, 0.6)',
+                'rgba(255, 206, 86, 0.6)',
+                'rgba(75, 192, 192, 0.6)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)',
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 1
+        }]
+    };
+
+    // Options mises à jour
+    const options = {
         scales: {
             y: {
                 beginAtZero: true,
@@ -225,7 +271,6 @@ const topLicensesChart = new Chart(document.getElementById('topLicensesChart').g
                         size: 0
                     }
                 }
-                
             },
             tooltip: {
                 callbacks: {
@@ -242,9 +287,14 @@ const topLicensesChart = new Chart(document.getElementById('topLicensesChart').g
                 borderWidth: 1
             }
         }
-        
-    }
-});
+    };
+
+    new Chart(ctx, {
+        type: 'bar',
+        data: topLicensesData,
+        options: options
+    });
+}
 
 // Graphique pour l'évolution du nombre de joueurs
 const ctx = document.getElementById('playerChart').getContext('2d');
@@ -479,16 +529,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const ageGenderChart = new Chart(ctx, {
         type: 'bar',
         data: {
-            labels: ['Moins de 18 ans', '18-24 ans', '25-34 ans', '35-44 ans', '45-54 ans', '55-64 ans', '65 ans et plus'],
+            labels: ['16-24 ans', '25-34 ans', '35-44 ans', '45-54 ans', '55-64 ans', '65 ans et plus'],
             datasets: [
                 {
                     label: 'Hommes ',
-                    data: [56, 52, 58, 54, 58, 61, 64],
+                    data: [92.4, 90.4, 88, 82.4, 73.2, 55.4],
                     backgroundColor: 'rgba(54, 162, 235, 0.6)',
                 },
                 {
                     label: 'Femmes',
-                    data: [44, 48, 42, 46, 42, 39, 36],
+                    data: [91.2, 88.5, 84.7, 77.3, 69, 57.4],
                     backgroundColor: 'rgba(255, 99, 132, 0.6)',
                 }
             ]
@@ -670,8 +720,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         label: function(tooltipItem) {
                             const datasetLabel = tooltipItem.dataset.label;
                             const value = tooltipItem.parsed.y;
-
-                            // Affiche le label avec le format approprié
                             return `${datasetLabel}: ${value}${tooltipItem.dataset.yAxisID === 'y' ? '%' : ' millions'}`;
                         }
                     }
@@ -684,15 +732,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Évolution des Genres de Jeux Vidéo
 var chartCtx = document.getElementById('genreEvolutionChart').getContext('2d');
-
-// Données ajustées pour que chaque décennie totalise 100%
 const evolutionData = {
     labels: ['1980', '1990', '2000', '2010', '2020'],
     datasets: [
         {
             label: 'Action ',
             backgroundColor: 'rgba(255, 99, 132, 0.6)',
-            data: [20, 25, 30, 35, 25] // Ajusté pour chaque décennie
+            data: [20, 25, 30, 35, 25]
         },
         {
             label: 'Aventure ',
@@ -716,17 +762,17 @@ const evolutionData = {
         },
         {
             label: 'Course/Sport ',
-            backgroundColor: 'rgba(75, 192, 192, 0.6)',
+            backgroundColor: 'rgba(0, 255, 18, 0.6)',
             data: [10, 5, 5, 5, 5]
         },
         {
             label: 'Stratégie ',
-            backgroundColor: 'rgba(255, 159, 64, 0.6)',
+            backgroundColor: 'rgba(255, 113, 0, 0.6)',
             data: [5, 5, 2, 3, 5]
         },
         {
             label: 'Simulation ',
-            backgroundColor: 'rgba(54, 162, 235, 0.6)',
+            backgroundColor: 'rgba(238, 69, 255, 0.6)',
             data: [5, 3, 3, 2, 5]
         }
     ]
@@ -783,10 +829,10 @@ const chartConfig = {
                         size: 16
                     },
                     callback: function(value) {
-                        return value + '%'; // Ajout d'un symbole de pourcentage
+                        return value + '%';
                     }
                 },
-                max: 100 // Limite à 100%
+                max: 100
             }
         },
         plugins: {
@@ -809,10 +855,10 @@ var genreEvolutionChart = new Chart(chartCtx, chartConfig);
 document.addEventListener('DOMContentLoaded', function () {
     const ctx = document.getElementById('educationGamesChart').getContext('2d');
 
-    const dataYears = ['2010', '2012', '2014', '2016', '2018', '2020', '2022']; // Years
+    const dataYears = ['2010', '2012', '2014', '2016', '2018', '2020', '2022'];
 
-    const revenueData = [2.1, 2.6, 3.2, 4.0, 5.2, 6.8, 7.5]; // Revenue in billion dollars
-    const learnersData = [20, 25, 35, 42, 55, 70, 85]; // Number of learners impacted in millions
+    const revenueData = [2.1, 2.6, 3.2, 4.0, 5.2, 6.8, 7.5];
+    const learnersData = [20, 25, 35, 42, 55, 70, 85];
 
     new Chart(ctx, {
         type: 'line',
@@ -827,7 +873,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     yAxisID: 'yRevenue',
                 },
                 {
-                    label: 'Apprentis impactés (en Millions) ',
+                    label: 'Apprenants impactés (en Millions) ',
                     data: learnersData,
                     borderColor: 'rgba(255, 99, 132, 1)',
                     backgroundColor: 'rgba(255, 99, 132, 0.6)',
@@ -874,7 +920,7 @@ document.addEventListener('DOMContentLoaded', function () {
                     },
                     title: {
                         display: true,
-                        text: 'Apprentis impactés (en Millions)',
+                        text: 'Apprenants impactés (en Millions)',
                         color: 'rgba(255, 99, 132, 1)',
                         font: {
                             size: 16
