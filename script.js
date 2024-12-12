@@ -11,7 +11,8 @@ const revenueChart = new Chart(revenueCtx, {
                 backgroundColor: 'rgba(102, 51, 153, 0.6)',
                 borderColor: 'rgba(102, 51, 153, 1)',
                 fill: true,
-                tension: 0.4
+                tension: 0.4,
+                pointRadius: 5 // Taille des points
             },
             {
                 label: 'Console  ',
