@@ -637,7 +637,7 @@ document.addEventListener('DOMContentLoaded', function() {
             datasets: [
                 {
                     label: 'Taux de joueurs se faisant des amis ',
-                    data: [50, 55, 60, 70, 74],
+                    data: [500, 55, 60, 70, 74],
                     borderColor: 'rgba(153, 102, 255, 1)',
                     backgroundColor: 'rgba(153, 102, 255, 0.2)',
                     fill: true,
