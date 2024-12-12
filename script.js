@@ -6,53 +6,70 @@ const revenueChart = new Chart(revenueCtx, {
         labels: ['1970', '1980', '1990', '2000', '2010', '2020'],
         datasets: [
             {
-                label: 'Arcade   ',
+                label: 'Arcade',
                 data: [20, 39, 10, 0, 0, 0],
                 backgroundColor: 'rgba(102, 51, 153, 0.6)',
                 borderColor: 'rgba(102, 51, 153, 1)',
                 fill: true,
                 tension: 0.4,
-                pointRadius: 8 // Taille des points
+                pointRadius: 12, // Taille des points augmentée
+                pointHoverRadius: 15, // Taille des points au survol
+                pointHoverBorderWidth: 3 // Largeur de la bordure au survol
             },
             {
-                label: 'Console  ',
+                label: 'Console',
                 data: [0, 10, 20, 33, 40, 33],
                 backgroundColor: 'rgba(255, 99, 132, 0.6)',
                 borderColor: 'rgba(255, 99, 132, 1)',
                 fill: true,
-                tension: 0.4
+                tension: 0.4,
+                pointRadius: 12,
+                pointHoverRadius: 15,
+                pointHoverBorderWidth: 3
             },
             {
-                label: 'PC   ',
+                label: 'PC',
                 data: [0, 0, 0, 20, 30, 40],
                 backgroundColor: 'rgba(75, 192, 192, 0.6)',
                 borderColor: 'rgba(75, 192, 192, 1)',
                 fill: true,
-                tension: 0.4
+                tension: 0.4,
+                pointRadius: 12,
+                pointHoverRadius: 15,
+                pointHoverBorderWidth: 3
             },
             {
-                label: 'Mobile   ',
+                label: 'Mobile',
                 data: [0, 0, 0, 0, 60, 85],
                 backgroundColor: 'rgba(255, 205, 86, 0.6)',
                 borderColor: 'rgba(255, 205, 86, 1)',
                 fill: true,
-                tension: 0.4
+                tension: 0.4,
+                pointRadius: 12,
+                pointHoverRadius: 15,
+                pointHoverBorderWidth: 3
             },
             {
-                label: 'Console Portable   ',
+                label: 'Console Portable',
                 data: [0, 0, 10, 25, 20, 0],
                 backgroundColor: 'rgba(153, 102, 255, 0.6)',
                 borderColor: 'rgba(153, 102, 255, 1)',
                 fill: true,
-                tension: 0.4
+                tension: 0.4,
+                pointRadius: 12,
+                pointHoverRadius: 15,
+                pointHoverBorderWidth: 3
             },
             {
-                label: 'Cloud    ',
+                label: 'Cloud',
                 data: [0, 0, 0, 0, 10, 20],
                 backgroundColor: 'rgba(255, 159, 64, 0.6)',
                 borderColor: 'rgba(255, 159, 64, 1)',
                 fill: true,
-                tension: 0.4
+                tension: 0.4,
+                pointRadius: 12,
+                pointHoverRadius: 15,
+                pointHoverBorderWidth: 3
             }
         ]
     },
