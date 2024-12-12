@@ -379,7 +379,7 @@ const playerChart = new Chart(ctx, {
     }
 });
 
-//Age moyen des joueurs (tracé)
+//Répartition des joueurs par tranche d'âge
 const averageAgeCtx = document.getElementById('averageAgeChart').getContext('2d');
 
 const averageAgeData = {
