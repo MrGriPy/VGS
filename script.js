@@ -12,9 +12,9 @@ const revenueChart = new Chart(revenueCtx, {
                 borderColor: 'rgba(102, 51, 153, 1)',
                 fill: true,
                 tension: 0.4,
-                pointRadius: 7, // Taille des points augmentée
-                pointHoverRadius: 10, // Taille des points au survol
-                pointHoverBorderWidth: 3 // Largeur de la bordure au survol
+                pointRadius: 7,
+                pointHoverRadius: 10,
+                pointHoverBorderWidth: 3
             },
             {
                 label: 'Console',
@@ -157,10 +157,9 @@ choices.forEach(choice => {
         const answer = this.getAttribute('data-answer');
 
         choices.forEach(c => {
-            c.classList.add('disabled');  // Désactivation de tous les autres boutons
+            c.classList.add('disabled');
         });
 
-        // Ajout de la classe 'pressed' au bouton choisi
         this.classList.add('pressed');
 
         if (answer === 'correct') {
@@ -322,7 +321,10 @@ const playerChart = new Chart(ctx, {
             backgroundColor: 'rgba(76, 76, 255, 0.2)', 
             borderWidth: 2,
             fill: false, 
-            tension: 0.3, 
+            tension: 0.3,
+            pointRadius: 7,
+            pointHoverRadius: 10,
+            pointHoverBorderWidth: 3
         }]
     },
     options: {
@@ -404,7 +406,10 @@ const averageAgeData = {
         backgroundColor: 'rgba(54, 162, 235, 0.2)',
         borderWidth: 2,
         fill: false,
-        tension: 0.1
+        tension: 0.1,
+        pointRadius: 7,
+        pointHoverRadius: 10,
+        pointHoverBorderWidth: 3
     }]
 };
 
@@ -646,6 +651,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     backgroundColor: 'rgba(75, 192, 192, 0.2)',
                     fill: true,
                     tension: 0.1,
+                    pointRadius: 7,
+                    pointHoverRadius: 10,
+                    pointHoverBorderWidth: 3,
                     yAxisID: 'y1'
                 }
             ]
@@ -862,7 +870,7 @@ const chartConfig = {
 
 var genreEvolutionChart = new Chart(chartCtx, chartConfig);
 
-//Les jeux vidéos n'ont aucune valeur éducative
+//Les jeux rendent bête/violent
 document.addEventListener('DOMContentLoaded', function () {
     const ctx = document.getElementById('educationGamesChart').getContext('2d');
 
@@ -881,6 +889,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     data: revenueData,
                     borderColor: 'rgba(54, 162, 235, 1)',
                     backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                    tension: 0.1,
+                    pointRadius: 7,
+                    pointHoverRadius: 10,
+                    pointHoverBorderWidth: 3,
                     yAxisID: 'yRevenue',
                 },
                 {
@@ -888,6 +900,10 @@ document.addEventListener('DOMContentLoaded', function () {
                     data: learnersData,
                     borderColor: 'rgba(255, 99, 132, 1)',
                     backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                    tension: 0.1,
+                    pointRadius: 7,
+                    pointHoverRadius: 10,
+                    pointHoverBorderWidth: 3,
                     yAxisID: 'yLearners',
                     color: "white",
                 }
