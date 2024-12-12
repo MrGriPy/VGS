@@ -132,14 +132,12 @@ const question = document.getElementById('question');
 
 choices.forEach(choice => {
     choice.addEventListener('click', function () {
-        // Si la réponse a déjà été donnée, on ne fait rien
         if (this.classList.contains('disabled') || this.classList.contains('pressed')) {
             return;
         }
 
         const answer = this.getAttribute('data-answer');
 
-        // Désactivation des choix après une réponse
         choices.forEach(c => {
             c.classList.add('disabled');  // Désactivation de tous les autres boutons
         });
@@ -161,7 +159,6 @@ choices.forEach(choice => {
             generateLicenceChart();
         }
 
-        // Ajouter la classe 'show' pour lancer l'animation
         feedback.classList.add('show');
         explanation.classList.add('show');
         graphCanvas.classList.add('show');
@@ -171,7 +168,6 @@ choices.forEach(choice => {
 function generateLicenceChart() {
     const ctx = graphCanvas.getContext('2d');
 
-    // Données mises à jour
     const topLicensesData = {
         labels: [
             'Pokémon (1996)', 
@@ -215,7 +211,6 @@ function generateLicenceChart() {
         }]
     };
 
-    // Options mises à jour
     const options = {
         scales: {
             y: {
@@ -379,7 +374,7 @@ const playerChart = new Chart(ctx, {
     }
 });
 
-//Répartition des joueurs par tranche d'âge
+//Âge moyen des joueurs
 const averageAgeCtx = document.getElementById('averageAgeChart').getContext('2d');
 
 const averageAgeData = {
@@ -465,7 +460,7 @@ const averageAgeChart = new Chart(averageAgeCtx, {
 });
 
 
-//Age moyen des joueurs (camembert)
+//Répartition des joueurs par tranche d'âge
 const ageCtx = document.getElementById('ageDistributionChart').getContext('2d');
 const ageDistributionChart = new Chart(ageCtx, {
     type: 'pie',
@@ -778,7 +773,6 @@ const evolutionData = {
     ]
 };
 
-// Configuration du graphique en barres empilées
 const chartConfig = {
     type: 'bar',
     data: evolutionData,
@@ -848,7 +842,6 @@ const chartConfig = {
     }
 };
 
-// Création du graphique
 var genreEvolutionChart = new Chart(chartCtx, chartConfig);
 
 //Les jeux vidéos n'ont aucune valeur éducative
