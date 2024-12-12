@@ -641,7 +641,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     borderColor: 'rgba(153, 102, 255, 1)',
                     backgroundColor: 'rgba(153, 102, 255, 0.2)',
                     fill: true,
-                    tension: 0.1,
+                    tension: 0.7,
                     pointRadius: 7,
                     pointHoverRadius: 10,
                     pointHoverBorderWidth: 3,
