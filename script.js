@@ -12,8 +12,8 @@ const revenueChart = new Chart(revenueCtx, {
                 borderColor: 'rgba(102, 51, 153, 1)',
                 fill: true,
                 tension: 0.4,
-                pointRadius: 12, // Taille des points augmentée
-                pointHoverRadius: 15, // Taille des points au survol
+                pointRadius: 7, // Taille des points augmentée
+                pointHoverRadius: 10, // Taille des points au survol
                 pointHoverBorderWidth: 3 // Largeur de la bordure au survol
             },
             {
@@ -23,8 +23,8 @@ const revenueChart = new Chart(revenueCtx, {
                 borderColor: 'rgba(255, 99, 132, 1)',
                 fill: true,
                 tension: 0.4,
-                pointRadius: 12,
-                pointHoverRadius: 15,
+                pointRadius: 7,
+                pointHoverRadius: 10,
                 pointHoverBorderWidth: 3
             },
             {
@@ -34,8 +34,8 @@ const revenueChart = new Chart(revenueCtx, {
                 borderColor: 'rgba(75, 192, 192, 1)',
                 fill: true,
                 tension: 0.4,
-                pointRadius: 12,
-                pointHoverRadius: 15,
+                pointRadius: 7,
+                pointHoverRadius: 10,
                 pointHoverBorderWidth: 3
             },
             {
@@ -45,8 +45,8 @@ const revenueChart = new Chart(revenueCtx, {
                 borderColor: 'rgba(255, 205, 86, 1)',
                 fill: true,
                 tension: 0.4,
-                pointRadius: 12,
-                pointHoverRadius: 15,
+                pointRadius: 7,
+                pointHoverRadius: 10,
                 pointHoverBorderWidth: 3
             },
             {
@@ -56,8 +56,8 @@ const revenueChart = new Chart(revenueCtx, {
                 borderColor: 'rgba(153, 102, 255, 1)',
                 fill: true,
                 tension: 0.4,
-                pointRadius: 12,
-                pointHoverRadius: 15,
+                pointRadius: 7,
+                pointHoverRadius: 10,
                 pointHoverBorderWidth: 3
             },
             {
@@ -67,8 +67,8 @@ const revenueChart = new Chart(revenueCtx, {
                 borderColor: 'rgba(255, 159, 64, 1)',
                 fill: true,
                 tension: 0.4,
-                pointRadius: 12,
-                pointHoverRadius: 15,
+                pointRadius: 7,
+                pointHoverRadius: 10,
                 pointHoverBorderWidth: 3
             }
         ]
