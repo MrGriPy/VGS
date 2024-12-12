@@ -625,7 +625,7 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-//Les jeux vidéos isolent socialement
+//Les jeux isolent du monde réel
 document.addEventListener('DOMContentLoaded', function() {
     const canvas = document.getElementById('communitiesChart');
     const ctx = canvas.getContext('2d');
@@ -642,6 +642,9 @@ document.addEventListener('DOMContentLoaded', function() {
                     backgroundColor: 'rgba(153, 102, 255, 0.2)',
                     fill: true,
                     tension: 0.1,
+                    pointRadius: 7,
+                    pointHoverRadius: 10,
+                    pointHoverBorderWidth: 3,
                     yAxisID: 'y'
                 },
                 {
