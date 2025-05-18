@@ -772,7 +772,7 @@ const evolutionData = {
         {
             label: 'RPG ',
             backgroundColor: 'rgba(75, 192, 192, 0.6)',
-            data: [15, 20, 25, 15, 10]
+            data: [15, 20, 22, 15, 10]
         },
         {
             label: 'Shooters ',
